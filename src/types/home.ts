@@ -1,7 +1,7 @@
-import { Location } from "../services/locationAPI";
+import {Location} from '../services/locationAPI';
 
 export type RootStackParamList = {
-  Search: { locations: Location[] } | undefined;
+  Search: {locations: Location[]} | undefined;
 };
 
 export interface RouteType {

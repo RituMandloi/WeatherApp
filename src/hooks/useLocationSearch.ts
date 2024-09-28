@@ -1,6 +1,6 @@
-import { useState } from 'react';
-import { fetchLocations } from '../services/locationAPI';
-import { Location } from '../types/hooks';
+import {useState} from 'react';
+import {fetchLocations} from '../services/locationAPI';
+import {Location} from '../types/hooks';
 
 export const useLocationSearch = () => {
   const [locations, setLocations] = useState<Location[]>([]);
@@ -20,5 +20,5 @@ export const useLocationSearch = () => {
     }
   };
 
-  return { locations, searchLocation, isLoading, error };
+  return {locations, searchLocation, isLoading, error};
 };

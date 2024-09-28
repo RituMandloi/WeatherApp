@@ -1,8 +1,8 @@
 import React from 'react';
-import { render } from '@testing-library/react-native';
+import {render} from '@testing-library/react-native';
 import ForecastDisplay from '../ForecastDisplay';
 import getWeatherImage from '../../../helpers/getWeatherImage';
-import { ForecastDisplayProps } from '../../../types/components';
+import {ForecastDisplayProps} from '../../../types/components';
 
 jest.mock('../../../helpers/getWeatherImage');
 
@@ -25,11 +25,13 @@ describe('ForecastDisplay Component', () => {
   });
 
   it('renders forecast items correctly', () => {
-    (getWeatherImage as jest.Mock).mockImplementation((weatherCode) =>
-      `https://weather.com/weather-icon-${weatherCode}.png`
+    (getWeatherImage as jest.Mock).mockImplementation(
+      weatherCode => `https://weather.com/weather-icon-${weatherCode}.png`,
     );
 
-    const { getByText, getAllByTestId } = render(<ForecastDisplay forecast={mockForecast} />);
+    const {getByText, getAllByTestId} = render(
+      <ForecastDisplay forecast={mockForecast} />,
+    );
     expect(getByText('2024-09-27')).toBeTruthy();
     expect(getByText('16°C')).toBeTruthy();
     expect(getByText('2024-09-28')).toBeTruthy();
@@ -37,14 +39,20 @@ describe('ForecastDisplay Component', () => {
 
     const images = getAllByTestId('weather-image');
     expect(images).toHaveLength(2);
-    expect(images[0].props.source.uri).toBe('https://weather.com/weather-icon-61.png');
-    expect(images[1].props.source.uri).toBe('https://weather.com/weather-icon-80.png');
+    expect(images[0].props.source.uri).toBe(
+      'https://weather.com/weather-icon-61.png',
+    );
+    expect(images[1].props.source.uri).toBe(
+      'https://weather.com/weather-icon-80.png',
+    );
   });
 
   it('does not render images if getWeatherImage returns null', () => {
     (getWeatherImage as jest.Mock).mockReturnValue(null);
 
-    const { queryAllByTestId } = render(<ForecastDisplay forecast={mockForecast} />);
+    const {queryAllByTestId} = render(
+      <ForecastDisplay forecast={mockForecast} />,
+    );
 
     const images = queryAllByTestId('weather-image');
     expect(images).toHaveLength(0);

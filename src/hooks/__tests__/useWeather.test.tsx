@@ -1,6 +1,6 @@
-import { renderHook } from '@testing-library/react-hooks';
-import { useWeather } from '../useWeather';
-import { fetchWeather } from '../../services/weatherAPI';
+import {renderHook} from '@testing-library/react-hooks';
+import {useWeather} from '../useWeather';
+import {fetchWeather} from '../../services/weatherAPI';
 
 jest.mock('../../services/weatherAPI');
 
@@ -32,7 +32,9 @@ describe('useWeather Hook', () => {
 
     (fetchWeather as jest.Mock).mockResolvedValue(mockWeatherData);
 
-    const { result, waitForNextUpdate } = renderHook(() => useWeather(52.52, 13.41));
+    const {result, waitForNextUpdate} = renderHook(() =>
+      useWeather(52.52, 13.41),
+    );
 
     await waitForNextUpdate();
 
@@ -43,13 +45,13 @@ describe('useWeather Hook', () => {
     });
 
     expect(result.current.forecast).toEqual([
-      { day: '2024-09-27', averageTemperature: 16, weatherCode: 61 },
-      { day: '2024-09-28', averageTemperature: 11, weatherCode: 80 },
-      { day: '2024-09-29', averageTemperature: 10, weatherCode: 3 },
-      { day: '2024-09-30', averageTemperature: 11, weatherCode: 3 },
-      { day: '2024-10-01', averageTemperature: 12, weatherCode: 63 },
-      { day: '2024-10-02', averageTemperature: 11, weatherCode: 63 },
-      { day: '2024-10-03', averageTemperature: 11, weatherCode: 3 },
+      {day: '2024-09-27', averageTemperature: 16, weatherCode: 61},
+      {day: '2024-09-28', averageTemperature: 11, weatherCode: 80},
+      {day: '2024-09-29', averageTemperature: 10, weatherCode: 3},
+      {day: '2024-09-30', averageTemperature: 11, weatherCode: 3},
+      {day: '2024-10-01', averageTemperature: 12, weatherCode: 63},
+      {day: '2024-10-02', averageTemperature: 11, weatherCode: 63},
+      {day: '2024-10-03', averageTemperature: 11, weatherCode: 3},
     ]);
 
     expect(result.current.isLoading).toBe(false);
@@ -59,7 +61,9 @@ describe('useWeather Hook', () => {
   it('handles error when fetching weather data fails', async () => {
     (fetchWeather as jest.Mock).mockRejectedValue(new Error('API is down'));
 
-    const { result, waitForNextUpdate } = renderHook(() => useWeather(52.52, 13.41));
+    const {result, waitForNextUpdate} = renderHook(() =>
+      useWeather(52.52, 13.41),
+    );
 
     await waitForNextUpdate();
 
@@ -84,7 +88,9 @@ describe('useWeather Hook', () => {
 
     (fetchWeather as jest.Mock).mockResolvedValue(mockWeatherData);
 
-    const { result, waitForNextUpdate } = renderHook(() => useWeather(52.52, 13.41));
+    const {result, waitForNextUpdate} = renderHook(() =>
+      useWeather(52.52, 13.41),
+    );
 
     expect(result.current.isLoading).toBe(true);
 

@@ -1,17 +1,16 @@
 //*> Splash View
 import React from 'react';
-import { View, Text } from 'react-native';
+import {View, Text} from 'react-native';
 import styles from './SplashStyle';
 
-interface SplashScreenViewProps {
-}
+interface SplashScreenViewProps {}
 
 const SplashView: React.FC<SplashScreenViewProps> = () => {
-    return (
-        <View style={styles.container}>
-            <Text style={styles.weatherText}>Weather App</Text>
-        </View>
-    )
+  return (
+    <View style={styles.container}>
+      <Text style={styles.weatherText}>Weather App</Text>
+    </View>
+  );
 };
 
 export default SplashView;

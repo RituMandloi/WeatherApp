@@ -1,11 +1,11 @@
 export interface ForecastDisplayProps {
-    forecast: Array<{
-        day: string;
-        averageTemperature: number;
-        weatherCode: number;
-    }>;
+  forecast: Array<{
+    day: string;
+    averageTemperature: number;
+    weatherCode: number;
+  }>;
 }
 
 export interface SearchBarProps {
-    onSearch: (location: string) => void;
+  onSearch: (location: string) => void;
 }

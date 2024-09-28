@@ -1,4 +1,4 @@
-import getWeatherImage, { WeatherCode } from '../getWeatherImage';
+import getWeatherImage, {WeatherCode} from '../getWeatherImage';
 
 test.each([
   {weatherCode: '0', image: 'https://openweathermap.org/img/wn/01d@2x.png'},

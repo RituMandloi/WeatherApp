@@ -1,6 +1,6 @@
-import { useState, useEffect } from 'react';
-import { fetchWeather } from '../services/weatherAPI';
-import { DailyForecast, Weather } from '../types/hooks';
+import {useState, useEffect} from 'react';
+import {fetchWeather} from '../services/weatherAPI';
+import {DailyForecast, Weather} from '../types/hooks';
 
 export const useWeather = (latitude: number, longitude: number) => {
   const [weather, setWeather] = useState<Weather | null>(null);
@@ -18,11 +18,17 @@ export const useWeather = (latitude: number, longitude: number) => {
           currentWeatherCode: data.daily.weather_code[0],
         });
 
-        const weeklyForecast: DailyForecast[] = data.daily.time.map((day: string, index: number) => ({
-          day,
-          averageTemperature: Math.round((data.daily.temperature_2m_max[index] + data.daily.temperature_2m_min[index]) / 2),
-          weatherCode: data.daily.weather_code[index],
-        }));
+        const weeklyForecast: DailyForecast[] = data.daily.time.map(
+          (day: string, index: number) => ({
+            day,
+            averageTemperature: Math.round(
+              (data.daily.temperature_2m_max[index] +
+                data.daily.temperature_2m_min[index]) /
+                2,
+            ),
+            weatherCode: data.daily.weather_code[index],
+          }),
+        );
 
         setForecast(weeklyForecast);
       } catch (err) {
@@ -35,5 +41,5 @@ export const useWeather = (latitude: number, longitude: number) => {
     getWeatherData();
   }, [latitude, longitude]);
 
-  return { weather, forecast, isLoading, error };
+  return {weather, forecast, isLoading, error};
 };
