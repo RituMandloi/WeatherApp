@@ -20,7 +20,7 @@ const ForecastDisplay: React.FC<ForecastDisplayProps> = ({ forecast }) => {
                         </View>
                         <View>
                             {weatherImage && (
-                                <Image source={{ uri: weatherImage }} style={styles.weatherImage} />
+                                <Image testID="weather-image" source={{ uri: weatherImage }} style={styles.weatherImage} />
                             )}
                         </View>
                     </View>

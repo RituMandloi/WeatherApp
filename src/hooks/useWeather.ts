@@ -1,17 +1,6 @@
 import { useState, useEffect } from 'react';
 import { fetchWeather } from '../services/weatherAPI';
-
-interface Weather {
-  location: string;
-  currentTemperature: number;
-  currentWeatherCode: number;
-}
-
-interface DailyForecast {
-  day: string;
-  averageTemperature: number;
-  weatherCode: number;
-}
+import { DailyForecast, Weather } from '../types/hooks';
 
 export const useWeather = (latitude: number, longitude: number) => {
   const [weather, setWeather] = useState<Weather | null>(null);

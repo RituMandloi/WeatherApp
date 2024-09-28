@@ -3,7 +3,7 @@ import { View, FlatList, Text, TouchableOpacity } from 'react-native';
 import styles from './SearchStyle';
 import { SearchScreenViewProps } from '../../types/search';
 
-const SearchScreenView: React.FC<SearchScreenViewProps> = ({ locations, handleLocationSelect }) => {
+const SearchView: React.FC<SearchScreenViewProps> = ({ locations, handleLocationSelect }) => {
   return (
     <View style={styles.container}>
       <FlatList
@@ -23,4 +23,4 @@ const SearchScreenView: React.FC<SearchScreenViewProps> = ({ locations, handleLo
   );
 };
 
-export default SearchScreenView;
+export default SearchView;

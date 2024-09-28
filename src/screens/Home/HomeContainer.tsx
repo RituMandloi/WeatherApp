@@ -9,7 +9,7 @@ import { NativeStackNavigationProp } from '@react-navigation/native-stack';
 import { RootStackParamList, RouteType } from '../../types/home';
 import styles from './HomeStyle';
 
-const HomeScreenContainer: React.FC = () => {
+const HomeContainer: React.FC = () => {
     const route = useRoute<RouteType>();
     const initialLat = route?.params?.lat || 52.52;
     const initialLon = route?.params?.lon || 13.41;
@@ -44,4 +44,4 @@ const HomeScreenContainer: React.FC = () => {
     );
 };
 
-export default HomeScreenContainer;
+export default HomeContainer;

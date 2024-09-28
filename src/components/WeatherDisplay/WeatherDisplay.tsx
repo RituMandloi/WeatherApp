@@ -18,7 +18,7 @@ const WeatherDisplay: React.FC<WeatherProps> = ({ weather, locationName }) => {
     <View style={styles.container}>
       <Text style={styles.location}>{locationName}</Text>
       <Text style={styles.temperature}>{Math.round(weather.currentTemperature)}°C</Text>
-      <Image source={{ uri: String(weatherImage) }} style={styles.image} />
+      {weatherImage && <Image testID='weather-image' source={{ uri: String(weatherImage) }} style={styles.image} />}
     </View>
   );
 };

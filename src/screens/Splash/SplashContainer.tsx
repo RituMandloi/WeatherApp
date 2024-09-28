@@ -1,27 +1,24 @@
 //*> Splash Container
-import { StatusBar } from 'react-native'
-import React, { useCallback, useEffect } from 'react';
-import { useFocusEffect, useNavigation } from '@react-navigation/native';
+import React, { useEffect } from 'react';
+import { useNavigation } from '@react-navigation/native';
 import { NativeStackNavigationProp } from '@react-navigation/native-stack';
 import { RootStackParamList } from '../../types/splash';
 import SplashView from './SplashView';
 
-const Splash: React.FC = () => {
+const SplashContainer: React.FC = () => {
     const navigation = useNavigation<NativeStackNavigationProp<RootStackParamList>>();
     
-    useFocusEffect(useCallback(() => {
-        StatusBar.setHidden(true);
+    useEffect(() => {
         setTimeout(() => {
             navigation.replace('Home');
         }, 2000);
         return () => {
-          StatusBar.setHidden(false);
         }
-      }, []));
+      }, []);
     
     return (
         <SplashView />
     )
 }
 
-export default Splash;
+export default SplashContainer;

@@ -17,6 +17,7 @@ export default StyleSheet.create({
     weatherImage: {
         width: scale(40),
         height: scale(40),
+        marginLeft: scale(10),
         backgroundColor: COLOR_CONST.whiteColor
     },
     day: {

@@ -4,7 +4,7 @@ import { RootStackParamList, RouteType } from '../../types/search';
 import { NativeStackNavigationProp } from '@react-navigation/native-stack';
 import { useNavigation, useRoute } from '@react-navigation/native';
 
-const SearchScreenContainer: React.FC = () => {
+const SearchContainer: React.FC = () => {
   const route = useRoute<RouteType>();
   const locations = route?.params?.locations || 52.52;
   const navigation = useNavigation<NativeStackNavigationProp<RootStackParamList>>();
@@ -21,4 +21,4 @@ const SearchScreenContainer: React.FC = () => {
   );
 };
 
-export default SearchScreenContainer;
+export default SearchContainer;

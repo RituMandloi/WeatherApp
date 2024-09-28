@@ -1,12 +1,6 @@
 import { useState } from 'react';
 import { fetchLocations } from '../services/locationAPI';
-
-interface Location {
-  id: number;
-  name: string;
-  latitude: number;
-  longitude: number;
-}
+import { Location } from '../types/hooks';
 
 export const useLocationSearch = () => {
   const [locations, setLocations] = useState<Location[]>([]);

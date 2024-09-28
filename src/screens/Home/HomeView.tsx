@@ -5,7 +5,7 @@ import ForecastDisplay from '../../components/ForecastDisplay/ForecastDisplay';
 import styles from './HomeStyle';
 import { HomeScreenViewProps } from '../../types/home';
 
-const HomeScreenView: React.FC<HomeScreenViewProps> = ({ weather, forecast, locationName, isLoading, error }) => {
+const HomeView: React.FC<HomeScreenViewProps> = ({ weather, forecast, locationName, isLoading, error }) => {
   if (isLoading) {
     return <Text style={styles.searchText}>Loading...</Text>;
   }
@@ -22,4 +22,4 @@ const HomeScreenView: React.FC<HomeScreenViewProps> = ({ weather, forecast, loca
   );
 };
 
-export default HomeScreenView;
+export default HomeView;
