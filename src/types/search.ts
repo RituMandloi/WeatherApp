@@ -15,11 +15,13 @@ export interface RouteParams {
 }
 
 export interface SearchScreenViewProps {
-  locations: Array<{
-    id: number;
-    name: string;
-    latitude: number;
-    longitude: number;
-  }> | null;
+  locations: Array<LocationType> | null;
   handleLocationSelect: (lat: number, lon: number, name: string) => void;
+}
+
+export interface LocationType {
+  id: number;
+  latitude: number;
+  longitude: number;
+  name: string;
 }

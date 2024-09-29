@@ -1,3 +1,4 @@
+//*> useLocationSearch Custom Hook
 import {useState} from 'react';
 import {fetchLocations} from '../services/locationAPI';
 import {Location} from '../types/hooks';

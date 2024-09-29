@@ -17,4 +17,8 @@ export default StyleSheet.create({
     marginRight: scale(8),
     color: COLOR_CONST.blackColor,
   },
+  button: {
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
 });

@@ -1,5 +1,5 @@
 //*> Search Container
-import React from 'react';
+import React, {useCallback} from 'react';
 import SearchScreenView from './SearchView';
 import {RootStackParamList, RouteType} from '../../types/search';
 import {NativeStackNavigationProp} from '@react-navigation/native-stack';
@@ -11,9 +11,12 @@ const SearchContainer: React.FC = () => {
   const navigation =
     useNavigation<NativeStackNavigationProp<RootStackParamList>>();
 
-  const handleLocationSelect = (lat: number, lon: number, name: string) => {
-    navigation.navigate('Home', {lat, lon, name});
-  };
+  const handleLocationSelect = useCallback(
+    (lat: number, lon: number, name: string) => {
+      navigation.navigate('Home', {lat, lon, name});
+    },
+    [navigation],
+  );
 
   return (
     <SearchScreenView
@@ -23,4 +26,4 @@ const SearchContainer: React.FC = () => {
   );
 };
 
-export default SearchContainer;
+export default React.memo(SearchContainer);

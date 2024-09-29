@@ -1,3 +1,4 @@
+//*> useWeather Custom Hook
 import {useState, useEffect} from 'react';
 import {fetchWeather} from '../services/weatherAPI';
 import {DailyForecast, Weather} from '../types/hooks';
@@ -29,7 +30,7 @@ export const useWeather = (latitude: number, longitude: number) => {
             weatherCode: data.daily.weather_code[index],
           }),
         );
-
+        setError(null);
         setForecast(weeklyForecast);
       } catch (err) {
         setError('Error fetching weather data');

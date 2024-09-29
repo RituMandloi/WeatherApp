@@ -1,5 +1,5 @@
 //*> Home Container
-import React, {useEffect} from 'react';
+import React, {useCallback, useEffect} from 'react';
 import {useNavigation, useRoute} from '@react-navigation/native';
 import HomeView from './HomeView';
 import {useWeather} from '../../hooks/useWeather';
@@ -28,9 +28,12 @@ const HomeContainer: React.FC = () => {
   const navigation =
     useNavigation<NativeStackNavigationProp<RootStackParamList>>();
 
-  const handleSearch = async (location: string) => {
-    await searchLocation(location);
-  };
+  const handleSearch = useCallback(
+    async (location: string) => {
+      await searchLocation(location);
+    },
+    [searchLocation],
+  );
 
   useEffect(() => {
     if (locations.length > 0) {
@@ -58,4 +61,4 @@ const HomeContainer: React.FC = () => {
   );
 };
 
-export default HomeContainer;
+export default React.memo(HomeContainer);

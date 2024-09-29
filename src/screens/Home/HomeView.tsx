@@ -31,4 +31,4 @@ const HomeView: React.FC<HomeScreenViewProps> = ({
   );
 };
 
-export default HomeView;
+export default React.memo(HomeView);
